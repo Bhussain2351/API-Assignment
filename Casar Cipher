@@ -1,0 +1,143 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOnpo16R8Mw1+sdObCkQ+XV",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Bhussain2351/API-Assignment/blob/main/Casar%20Cipher\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 17,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "O_W7wmRk34g6",
+        "outputId": "bb40dfb1-cf36-401f-8e6e-dc4911ce1e51"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "                                                            \n",
+            "           88             88                                 \n",
+            "           \"\"             88                                 \n",
+            "                          88                                 \n",
+            " ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,  \n",
+            "a8\"     \"\" 88 88P'    \"8a 88P'    \"8a a8P_____88 88P'   \"Y8  \n",
+            "8b         88 88       d8 88       88 8PP\"\"\"\"\"\"\" 88          \n",
+            "\"8a,   ,aa 88 88b,   ,a8\" 88       88 \"8b,   ,aa 88          \n",
+            " `\"Ybbd8\"' 88 88`YbbdP\"'  88       88  `\"Ybbd8\"' 88          \n",
+            "              88                                             \n",
+            "              88                                             \n",
+            "Type 'encode' for encrypt or 'decode' for decrypt\n",
+            "encode\n",
+            "Type your message\n",
+            "rabia\n",
+            "Type the shift number\n",
+            "2\n",
+            "Here is your encoded result :'tcdkc'\n",
+            "Type 'yes' if you want to go again.Otherwise Type 'no'\n",
+            "yes\n",
+            "Type 'encode' for encrypt or 'decode' for decrypt\n",
+            "decode\n",
+            "Type your message\n",
+            "tcdkc\n",
+            "Type the shift number\n",
+            "2\n",
+            "Here is your decoded result :'rabia'\n",
+            "Type 'yes' if you want to go again.Otherwise Type 'no'\n",
+            "no\n",
+            "Good Bye!\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "logo='''\n",
+        "           88             88\n",
+        "           \"\"             88\n",
+        "                          88\n",
+        " ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,\n",
+        "a8\"     \"\" 88 88P'    \"8a 88P'    \"8a a8P_____88 88P'   \"Y8\n",
+        "8b         88 88       d8 88       88 8PP\"\"\"\"\"\"\" 88\n",
+        "\"8a,   ,aa 88 88b,   ,a8\" 88       88 \"8b,   ,aa 88\n",
+        " `\"Ybbd8\"' 88 88`YbbdP\"'  88       88  `\"Ybbd8\"' 88\n",
+        "              88\n",
+        "              88                                             '''\n",
+        "\n",
+        "print(logo)\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',\n",
+        "             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "def caesar(original_text,shift_amount,encode_or_decode):\n",
+        "  caesar_text=\"\"\n",
+        "  if encode_or_decode==\"decode\":\n",
+        "        shift_amount*=-1\n",
+        "  for letter in original_text:\n",
+        "    if letter not in alphabet:\n",
+        "     caesar_text+=letter\n",
+        "    else:\n",
+        "        shift_position=alphabet.index(letter)+shift_amount\n",
+        "        shift_position%=len(alphabet)\n",
+        "        caesar_text+=alphabet[shift_position]\n",
+        "\n",
+        "  print(f\"Here is your {encode_or_decode}d result :'{caesar_text}'\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "should_continue=True\n",
+        "while should_continue:\n",
+        "  direction=input(\"Type 'encode' for encrypt or 'decode' for decrypt\\n\").lower()\n",
+        "  text=input(\"Type your message\\n\").lower()\n",
+        "  shift=int(input(\"Type the shift number\\n\"))\n",
+        "\n",
+        "  caesar(original_text=text,shift_amount=shift,encode_or_decode=direction)\n",
+        "  restart=input(\"Type 'yes' if you want to go again.Otherwise Type 'no'\\n\").lower()\n",
+        "  if restart==\"no\":\n",
+        "    should_continue=False\n",
+        "print(\"Good Bye!\")\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "8Vw9d3sUB75V"
+      },
+      "execution_count": 17,
+      "outputs": []
+    }
+  ]
+}
